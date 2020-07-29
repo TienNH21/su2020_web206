@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="can_nang">
+
+    <input type="number" id="chieu_cao">
+
+    <button onclick="hienThiKetQua(calcMBMI)">Enter</button>
+
+    <div>
+        <label>Chỉ số BMI của bạn là:</label>
+        <label id="ket_qua"></label>
+    </div>
+    <script>
+        var calcMBMI = function (chieuCao, canNang) {
+            return canNang / (chieuCao * chieuCao);
+        };
+
+        var hienThiKetQua = function (callback) {
+            var canNang = document.getElementById('can_nang').value;
+            var chieuCao = document.getElementById('chieu_cao').value;
+
+            var ketQua = callback(chieuCao, canNang);
+            document.getElementById('ket_qua').innerText = ketQua;
+        }
+    </script>
+</body>
+</html>
