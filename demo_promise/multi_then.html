@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var promise = new Promise(
+            function (resolve, reject) {
+                // Thực hiện các công việc của Promise
+                setTimeout( function () {
+                    console.log(1);
+                    resolve();
+                }, 3000 );
+            }
+        );
+
+        promise
+            .then(function () {
+                setTimeout( function () {
+                    console.log(2);
+                }, 4000);
+            })
+            .then(function () {
+                //
+            });
+    </script>
+</body>
+</html>

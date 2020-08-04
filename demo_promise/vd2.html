@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            height: 400px;
+            width: 400px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="square" id="square"></div>
+    <script>
+        // Sau 1s -> chuyển màu sang màu vàng
+        // Sau 1s -> chuyển sang màu xanh
+
+        var setColorPerTime = function (color, time) {
+            return new Promise(
+                function (resolve, reject) {
+                    setTimeout(() => {
+                        try {
+                            document.getElementById('square').style.backgroundColor = color;
+                            console.log(resolve);
+                            resolve();
+                        } catch (error) {
+                            console.log(error);
+                            reject();
+                        }
+                    }, time);
+                }
+            );
+        }
+
+        var callbackSuccess = function () {
+            // Do something
+            console.log('Yellow');
+            setColorPerTime('Green', 1000);
+        }
+
+        var callbackFailed = function () {
+            // Do something
+            console.log('Yellow');
+            setColorPerTime('Green', 1000);
+        }
+
+        var promise = setColorPerTime('yellow', 1000); // Pending
+
+        // Khi promise xử lý xong -> promise được đưa về trạng thái resolved, hàm then() sẽ được gọi
+        promise
+            .then(callbackSuccess)
+            .catch(callbackFailed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+		function ThucDay(viectieptheo){
+			console.log("b1.Đã ngủ dậy!");
+			viectieptheo();
+		}
+
+		function DanhRang(viectieptheo){
+			console.log("b2. Đang đánh răng");
+			setTimeout(function(){
+				console.log("Đã đánh răng xong!");
+				viectieptheo();
+			}, 2000);
+		}
+
+		function ThayQuanAo(viectieptheo){
+			console.log("b3. Đang thay quan ao");
+			setTimeout(function(){
+				console.log("Đã thay quần áo xong!");
+				viectieptheo();
+			}, 3000);
+		}
+
+		function DiHoc(viectieptheo){
+			viectieptheo();
+		}
+
+        function DaThucDay() {
+			DanhRang(DanhRangXong);
+		}
+
+        function DanhRangXong() {
+            ThayQuanAo(ThayQuanAoXong);
+        }
+
+        function ThayQuanAoXong() {
+            DiHoc(DiDenTruong);
+        }
+
+        function DiDenTruong(){
+            console.log("b4. Đang di chuyển...");
+            setTimeout(function(){
+                console.log("Đã đến trường!");
+            }, 4000);
+        }
+
+		ThucDay(DaThucDay);
+</script>
+
+</body>
+</html>

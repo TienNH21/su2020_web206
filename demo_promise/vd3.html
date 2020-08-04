@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Block 2 - SU 2020 ...</h2>
+    <script>
+        var h2 = document.querySelector('h2');
+
+        var quaTrinhHoc = function (diem, thoiGian) {
+            return new Promise(
+                function (resolve, reject) {
+                    setTimeout(function () {
+                        if (diem >= 9) {
+                            resolve(diem);
+                        } else {
+                            reject("Không đủ điều kiện!");
+                        }
+                    }, thoiGian);
+                }
+            );
+        }
+
+        var time = 1500;
+        var diem = parseInt(prompt("Nhập điểm:"));
+
+        var promise = quaTrinhHoc(diem, time);
+        promise
+            .then(function (diem) {
+                h2.innerText = "Đã đủ điều kiện đạt ong vàng!";
+            })
+            .catch(function (errorMessage) {
+                h2.innerText = errorMessage;
+            });
+
+    </script>
+</body>
+</html>

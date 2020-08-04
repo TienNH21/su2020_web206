@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            width: 60px;
+            height: 60px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="square" id="square"></div>
+    <button onclick="changeDivColor()">Change Color</button>
+
+    <script>
+        var changeDivColor = function () {
+            setTimeout(function () {
+                var color = randomColor();
+
+                document.getElementById('square').style.backgroundColor = color;
+            }, 1000);
+        }
+
+        var randomColor = function () {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+    </script>
+</body>
+</html>

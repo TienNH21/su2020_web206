@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="submitHandler(event)">
+        <input type="text" name="" id="name" required>
+        <button>Enter</button>
+    </form>
+    <ul id="list"></ul>
+
+    <script>
+        var arr = [];
+        var submitHandler = function (event) {
+            event.preventDefault();
+
+            var text = document.getElementById('name').value;
+
+            if (text == '') {
+                alert('Rỗng!');
+                return ;
+            }
+
+            arr.push(text);
+            arr.sort();
+
+            var html = '';
+            arr.forEach(function (element) {
+                html += ('<li>' + element + '</li>');
+            });
+
+            document.getElementById('list').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
