@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="target"></ul>
+    <script>
+        var products = [
+        {
+            "id": 1,
+            "name": "A",
+            "image": "image1.jpg",
+            "cate_id": 1,
+            "price": 2000
+        },
+        {
+            "id": 2,
+            "name": "B",
+            "image": "image2.jpg",
+            "cate_id": 2,
+            "price": 3000
+        },
+        {
+            "id": 3,
+            "name": "C",
+            "image": "image3.jpg",
+            "cate_id": 3,
+            "price": 4000
+        },
+        {
+            "id": 4,
+            "name": "D",
+            "image": "image4.jpg",
+            "cate_id": 4,
+            "price": 6000
+        },
+        {
+            "id": 5,
+            "name": "E",
+            "image": "image5.jpg",
+            "cate_id": 5,
+            "price": 7000
+        }
+    ]
+
+        var ulElement = document.querySelector('#target');
+
+        var promise = new Promise(function (resolve, reject) {
+            let html = '';
+            products.forEach(function (value, index) {
+                html += '<li>' + value.name + '</li>';
+            });
+
+            return resolve(html);
+        });
+
+        promise.then(function (data) {
+            ulElement.innerHTML = data;
+        });
+    </script>
+</body>
+</html>
